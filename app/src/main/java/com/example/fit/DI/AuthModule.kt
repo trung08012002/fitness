@@ -2,6 +2,8 @@ package com.example.fit.DI
 
 import com.example.fit.data.component.Login.AuthRepository
 import com.example.fit.data.component.Login.AuthRepositoryImpl
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -19,4 +21,12 @@ class AuthModule {
 
     @Provides
     fun provideAuthRepository(impl: AuthRepositoryImpl): AuthRepository =impl
-}
+    @Provides
+    fun provideAppCheck():FirebaseAppCheck {
+        val firebaseAppCheck: FirebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(
+            PlayIntegrityAppCheckProviderFactory.getInstance()
+        )
+        return firebaseAppCheck
+    }
+ }

@@ -1,9 +1,8 @@
 package com.example.fit.data.component.Login
 
 import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import androidx.room.Relation
+import com.example.fit.data.component.User.user_infor
 
 
 data class user_account_role(

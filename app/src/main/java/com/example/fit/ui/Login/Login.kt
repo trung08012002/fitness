@@ -26,14 +26,12 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.fit.R
-import com.example.fit.ui.Screen
+import com.example.fit.ui.navigation.Screen
 import com.example.fit.ui.theme.yellowdeep
 import com.example.fit.viewmodel.ModelLogin
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun loginscreen(navController: NavController) {

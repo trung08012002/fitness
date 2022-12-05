@@ -1,13 +1,14 @@
 package com.example.fit.ui.Login
 
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.AbsoluteRoundedCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 
 import androidx.compose.material.icons.filled.AccountCircle
@@ -32,7 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.fit.R
-import com.example.fit.ui.Screen
+import com.example.fit.ui.navigation.Screen
 import com.example.fit.ui.theme.yellowdeep
 import com.example.fit.viewmodel.ModelLogin
 import com.google.relay.compose.RowScopeInstanceImpl.weight
@@ -168,6 +169,7 @@ fun contentsignup(
                             },
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(25.dp),
+                          
                         )
                         OutlinedTextField(
                             value = email,
@@ -240,6 +242,7 @@ fun contentsignup(
                             if(password==passwordconfirm)
                             {
                                 viewModel.signup(name,email,password)
+                                navController.navigate(route= Screen.WeightHeight.router)
                             }
                             else{
                                Toast.makeText(mContext,"Password and Password confirm has to be the same!",Toast.LENGTH_SHORT).show()
